@@ -9,7 +9,7 @@ import { variantTitle, variantImage } from "../utils/animateVariant";
 const ContactInformation = () => {
   const { loading, error, data } = useQueryHours();
   if (loading) return null;
-  if (error) return null;
+
   return (
     <section className="px-4 lg:px-14 text-kaki">
       <div className="py-20  text-center lg:text-left lg:pl-14">
@@ -21,15 +21,22 @@ const ContactInformation = () => {
           <motion.div {...variantTitle} className="lg:w-1/2">
             <p className="underline mb-8">HORAIRES D'OUVERTURE</p>
             <ul className=" font-medium mb-8">
-              {data.hours.data.map(
-                ({ attributes: { day, open_hours, closed_hours } }, index) => {
-                  return (
-                    <li key={index}>
-                      {day} : {open_hours ? formatTime(open_hours) : "Fermé"}{" "}
-                      {closed_hours ? `- ${formatTime(open_hours)}` : ""}
-                    </li>
-                  );
-                }
+              {error ? (
+                <p>Erreur ...</p>
+              ) : (
+                data.hours.data.map(
+                  (
+                    { attributes: { day, open_hours, closed_hours } },
+                    index
+                  ) => {
+                    return (
+                      <li key={index}>
+                        {day} : {open_hours ? formatTime(open_hours) : "Fermé"}{" "}
+                        {closed_hours ? `- ${formatTime(open_hours)}` : ""}
+                      </li>
+                    );
+                  }
+                )
               )}
             </ul>
             <a className="font-semibold" href="tel:0388750516">

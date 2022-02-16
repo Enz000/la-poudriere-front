@@ -13,20 +13,16 @@ const ContactForm = () => {
       message: "",
     },
     validationSchema: formSchema,
-    onSubmit: (values) => {
-      console.log(values);
-    },
   });
-  console.log(formik.errors);
+
   return (
-    <section className="">
+    <section>
       <h1 className=" text-2xl text-center mt-16 font-bold text-kaki">
         Contactez nous
       </h1>
 
       <form
         method="POST"
-        onSubmit={formik.handleSubmit}
         name="contact-form"
         data-netlify-recaptcha="true"
         className="w-full max-w-lg mt-5 md:mt-16 px-2 mx-auto"
@@ -52,11 +48,11 @@ const ContactForm = () => {
               id="grid-first-name"
               type="text"
               placeholder="Jean"
-              name="firstname"
-              onChange={formik.handleChange}
-              value={formik.values.firstname}
+              {...formik.getFieldProps("firstname")}
             />
-            {formik.errors.firstname ? <p>{formik.errors.firstname}</p> : null}
+            {formik.touched.firstname && formik.errors.firstname ? (
+              <p className=" text-red-500">{formik.errors.firstname}</p>
+            ) : null}
           </motion.div>
           <motion.div {...variantBouncyY} className="w-full md:w-1/2 px-3">
             <label
@@ -71,10 +67,11 @@ const ContactForm = () => {
               id="grid-last-name"
               type="text"
               placeholder="Dupont"
-              name="lastname"
-              onChange={formik.handleChange}
-              value={formik.values.lastname}
+              {...formik.getFieldProps("lastname")}
             />
+            {formik.touched.lastname && formik.errors.lastname ? (
+              <p className=" text-red-500">{formik.errors.lastname}</p>
+            ) : null}
           </motion.div>
         </div>
         <div className="flex flex-wrap -mx-3 mb-6">
@@ -90,11 +87,12 @@ const ContactForm = () => {
               className="appearance-none block w-full bg-gray-200 text-kaki border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-brown"
               id="email"
               type="email"
-              name="email"
               placeholder="jeandupont@monsupermail.com"
-              onChange={formik.handleChange}
-              value={formik.values.email}
+              {...formik.getFieldProps("email")}
             />
+            {formik.touched.email && formik.errors.email ? (
+              <p className=" text-red-500">{formik.errors.email}</p>
+            ) : null}
           </motion.div>
         </div>
         <div className="flex flex-wrap -mx-3 mb-6">
@@ -111,16 +109,22 @@ const ContactForm = () => {
               className=" no-resize appearance-none block w-full bg-gray-200 text-kaki border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-brown h-48 resize-none"
               id="message"
               placeholder="Salut la poudrière !"
-              onChange={formik.handleChange}
-              value={formik.values.message}
-              name="message"
+              {...formik.getFieldProps("message")}
             ></motion.textarea>
+            {formik.touched.message && formik.errors.message ? (
+              <p className=" text-red-500">{formik.errors.message}</p>
+            ) : null}
           </motion.div>
         </div>
         <div>
           <motion.div {...variantBouncyX} className="text-center">
             <div data-netlify-recaptcha="true"></div>
-            <Button buttonColor={"brown"} content={"Envoyer"} type="submit" />
+            <Button
+              buttonColor={"brown"}
+              disabled={!(formik.isValid && formik.dirty)}
+              content={"Envoyer"}
+              type="submit"
+            />
           </motion.div>
         </div>
       </form>
