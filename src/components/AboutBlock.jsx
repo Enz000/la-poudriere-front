@@ -3,8 +3,6 @@ import ArrowDown from "./ArrowDown";
 import Button from "./Button";
 import Markdown from "markdown-to-jsx";
 import PropTypes from "prop-types";
-
-
 const AboutBlock = ({ AboutContent }) => {
   return (
     <section id="story" className=" bg-kaki text-cream">

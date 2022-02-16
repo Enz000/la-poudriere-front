@@ -32,7 +32,7 @@ const Home = ({ title }) => {
         return (
           <div key={index}>
             {(index === 0 && (
-              <Animate thresholdValue={0.9}>
+              <Animate>
                 <AboutBlock
                   AboutContent={{
                     title,
