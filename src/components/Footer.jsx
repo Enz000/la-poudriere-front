@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className=" absolute bottom-0  w-full bg-kaki text-sm">
+    <footer className="  w-full bg-kaki text-sm">
       <div className=" text-cream mx-4 py-3 sm:py-2 flex flex-wrap flex-col-reverse md:flex-row items-center leading-none justify-around">
         <a href="/" target="_blank" rel="noreferer">
           <span className="my-2 sm:my-0">made with by enzosantamaria</span>
