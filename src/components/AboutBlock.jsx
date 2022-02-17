@@ -10,7 +10,7 @@ const AboutBlock = ({ AboutContent }) => {
         <div className="hidden lg:block w-1/2  ">
           <img
             className=" w-2/5 m-auto rounded"
-            src={process.env.REACT_APP_URI + AboutContent.img}
+            src={AboutContent.img}
             alt=" brushing"
           />
         </div>
@@ -22,7 +22,7 @@ const AboutBlock = ({ AboutContent }) => {
           <div className=" lg:hidden mb-8 ">
             <img
               className="  w-4/5 m-auto rounded"
-              src={process.env.REACT_APP_URI + AboutContent.img}
+              src={AboutContent.img}
               alt="brushing"
             />
           </div>

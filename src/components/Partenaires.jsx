@@ -11,7 +11,7 @@ const Partenaires = ({ data }) => {
           {data.map(({ attributes }, index) => (
             <img
               key={index}
-              src={process.env.REACT_APP_URI + attributes.url}
+              src={attributes.url}
               alt="Logo de nos partenaires"
               className="mx-auto  w-1/2 sm:w-1/5 md:w-1/6 lg:w-40"
             />

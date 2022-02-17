@@ -27,8 +27,7 @@ const Home = ({ title }) => {
           img: heroArticle.img.data,
         }}
       />
-      {articles.map(({ attributes }, index) => {
-        const { title, content, img } = attributes;
+      {articles.map(({ attributes: { title, content, img } }, index) => {
         return (
           <div key={index}>
             {(index === 0 && (

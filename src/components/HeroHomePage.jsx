@@ -40,7 +40,7 @@ const Hero = ({ heroSection: { title, content, img } }) => {
               {...variantImage}
               key={index}
               className="object-cover w-full mx-auto h-56 rounded shadow-lg"
-              src={process.env.REACT_APP_URI + attributes.url}
+              src={attributes.url}
               alt={`cliente coiffure ${index++}`}
             />
           ))}

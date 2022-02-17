@@ -17,20 +17,20 @@ const HeroStoryPage = ({
             <div className="flex flex-col items-end px-3">
               <img
                 className="object-cover mb-6 rounded shadow-lg h-28 sm:h-48 xl:h-64 w-28 sm:w-52 xl:w-64"
-                src={process.env.REACT_APP_URI + img.data[0].attributes.url}
-                alt={process.env.REACT_APP_URI + img.data[0].attributes.alt}
+                src={img.data[0].attributes.url}
+                alt={img.data[0].attributes.alt}
               />
               <img
                 className="object-cover w-32 h-32 rounded shadow-lg sm:h-48 xl:h-80 sm:w-56 xl:w-80"
-                src={process.env.REACT_APP_URI + img.data[1].attributes.url}
-                alt={process.env.REACT_APP_URI + img.data[1].attributes.alt}
+                src={img.data[1].attributes.url}
+                alt={img.data[1].attributes.alt}
               />
             </div>
             <div className="px-3">
               <img
                 className="object-cover w-40 h-40 rounded shadow-lg sm:h-64 xl:h-80 sm:w-64 xl:w-80"
-                src={process.env.REACT_APP_URI + img.data[2].attributes.url}
-                alt={process.env.REACT_APP_URI + img.data[2].attributes.alt}
+                src={img.data[2].attributes.url}
+                alt={img.data[2].attributes.alt}
               />
             </div>
           </motion.div>
