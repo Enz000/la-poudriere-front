@@ -1,6 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { animate, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Markdown from "markdown-to-jsx";
 import { variantBouncyY, variantBouncyX } from "../utils/animateVariant";
 const HeroStoryPage = ({
